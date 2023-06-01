@@ -1,7 +1,6 @@
 def odd_even(int):
-    if int > 2:
-        odd_even(int/2)
-    elif int == 2:
-        print("even")
+    newint = int%10
+    if (newint%2) == 0:
+        return("even")
     else:
-        print("odd")
+        return("odd")
