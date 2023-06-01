@@ -1,4 +1,4 @@
-def statistic_info(numbers: list[int]):
+def statistic_info(numbers: list):
     sum = 0
     for i in numbers:
         sum = sum + i
