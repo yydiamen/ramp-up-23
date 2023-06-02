@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Body
+from fastapi import FastAPI
 import schemas
 import uuid
 
@@ -26,9 +26,11 @@ def addBook(book:schemas.Book):
     
     
 @app.put("/books/{id}")
-def bookUpdate(id:int, book:schemas.Book):
+def bookUpdate(id: int, book: schemas.Book):
     BookLibrary[id]["title"] = book.title
     BookLibrary[id]["author"] = book.author
     BookLibrary[id]["year"] = book.year
 
-@app.delete()
+@app.delete("/books/{id}")
+def deleteBook(id:str):
+    del BookLibrary[id]
