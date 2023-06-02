@@ -21,7 +21,8 @@ def getBooksByID(id:str):
 def addBook(book:schemas.Book):
     newBook = len(BookLibrary.keys()) + 1
     newid = uuid.uuid1()
-    BookLibrary[newBook] = {newid:book}
+    book.id = newid
+    BookLibrary[newid] = book
     return newid
     
     
