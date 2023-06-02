@@ -12,7 +12,7 @@ class Book(BookInfo):
     uid: UUID
 
 
-db:dict[UUID, Book] = dict()
+db: dict[UUID, Book] = dict()
 
 app = FastAPI()
 
