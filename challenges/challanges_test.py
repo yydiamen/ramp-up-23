@@ -15,6 +15,6 @@ class Challanges_Unit_Tests(unittest.TestCase):
     def test_CodingInterview(self):
         self.assertEqual(CodingInterview_hard.interview([5, 5, 10, 10, 15, 15, 20, 20], 120), "qualified")
     
-    def test_degrees_Test(self):
-        self.assertEqual(degrees_easy.pi(50), 2864)
+    def test_sum(self):
+       self.assertEqual(sum_very_easy.addition(3, 4), 7) 
         
