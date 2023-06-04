@@ -1,12 +1,16 @@
-from redis import Redis
+import redis
 from redis.client import PubSub
-r: Redis =  Redis("localhost", 5000, db=0)
-pubsub: PubSub = r.pubsub()
-pubsub.subscribe("messages")
 
-for messages in pubsub.listen():
-    data = messages['data']
-    if isinstance(data, bytes):
-        print(data.decode())
-    else:
-        print(data)
+r = redis.Redis(
+    host='127.0.0.1',
+    port=6379,
+    decode_responses=True
+)
+
+mobile = r.pubsub()
+
+
+mobile.subscribe("Message: ")
+
+for message in mobile.listen():
+    print(message)
