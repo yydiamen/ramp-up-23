@@ -1,5 +1,5 @@
 import redis
-
+from redis.client import PubSub
 r = redis.Redis(
     host='localhost',
     port=6379,
@@ -9,7 +9,7 @@ r = redis.Redis(
 mobile = r.pubsub()
 
 
-mobile.subscribe("Message: ")
+mobile.subscribe("message")
 
 for message in mobile.listen():
     print(message)

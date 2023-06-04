@@ -5,9 +5,10 @@ r = redis.Redis(
     port=6379,
     decode_responses=True 
 )
-app = FastAPI()
+app = fastapi.FastAPI()
 
 @app.post("/publish")
 def post_message(message: str):
     "Post a message to the oylum"
-    r.publish("message", message=message)
+    num = r.publish("message", message=message)
+    return num
